@@ -47,7 +47,7 @@ class Litejobqueue < Litequeue
   @@queue = nil
   @@mutex = Litescheduler::Mutex.new
 
-  attr_reader :running
+  attr_reader :running, :jobs_in_flight
 
   alias_method :_push, :push
 
