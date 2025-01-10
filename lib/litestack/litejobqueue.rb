@@ -165,7 +165,7 @@ class Litejobqueue < Litequeue
     super
     @jobs_in_flight = 0
     @workers = @options[:workers].times.collect { create_worker }
-    @gc = create_garbage_collector
+    @gc = create_garbage_collector unless @workers.empty?
     @mutex = Litescheduler::Mutex.new # reinitialize a mutex in setup as the environment could change after forking
   end
 
