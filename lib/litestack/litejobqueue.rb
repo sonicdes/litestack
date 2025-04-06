@@ -138,6 +138,10 @@ class Litejobqueue < Litequeue
     close
   end
 
+  def stop_workers
+    @running = false
+  end
+
   private
 
   def prepare_search_options(opts)
